@@ -10,11 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // ── Security Middleware ───────────────────────────────────────────────────────
-app.use(
-  cors({
-    origin: process.env.CORS_ORIGIN || "http://localhost:5173",
-  })
-);
+app.use(cors()); // Allow all origins for Vercel deployment
 app.use(express.json());
 
 // Rate limiting: max 100 requests per 15 minutes per IP
@@ -54,7 +50,7 @@ app.post("/login", loginLimiter, async (req, res) => {
 
     // Validate password against hash
     const passwordMatch = await bcrypt.compare(password, VALID_PASSWORD_HASH);
-    
+
     if (passwordMatch) {
       return res.status(200).json({
         message: "Login successful.",
@@ -85,7 +81,9 @@ if (process.env.NODE_ENV !== "production") {
     };
 
     https.createServer(options, app).listen(PORT, () => {
-      console.log(`✅  Backend server running securely at https://localhost:${PORT}`);
+      console.log(
+        `✅  Backend server running securely at https://localhost:${PORT}`,
+      );
     });
   } catch (err) {
     console.error("Local certs not found, fallback to HTTP");
