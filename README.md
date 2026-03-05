@@ -1,6 +1,6 @@
-# Enterprise Login Application
+# Login Application
 
-A full-stack, responsive login application featuring a premium "Enterprise" UI theme. Built with React (Vite) and Tailwind CSS on the frontend, and Node.js with Express on the backend. This project includes secure authentication, credential validation, a welcome dashboard, and follows modern web development best practices.
+A full-stack, responsive login application featuring a premium "LOGIN" UI theme. Built with React (Vite) and Tailwind CSS on the frontend, and Node.js with Express on the backend. This project includes secure authentication, credential validation, a welcome dashboard, and follows modern web development best practices.
 
 ## 🚀 Features
 
